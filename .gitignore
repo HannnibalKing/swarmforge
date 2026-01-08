@@ -1,0 +1,78 @@
+# Environment variables
+.env
+.env.local
+.env.production
+.env.test
+
+# Dependencies
+node_modules/
+vendor/
+**/node_modules/
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Go
+*.test
+*.out
+go.work
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# MinIO/S3 local storage
+minio-data/
+
+# Docker volumes
+postgres_data/
+redis_data/
+minio_data/
+rabbitmq_data/
+
+# Test coverage
+coverage/
+*.coverprofile
+.coverage
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Certificates
+*.pem
+*.key
+*.crt
+
+# Backup files
+*.backup
+*.bak
+*.sql.gz
