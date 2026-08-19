@@ -27,6 +27,8 @@
   - Calibration scoring algorithm
 - [x] QA Service (Node.js/TypeScript) - Photo verification, AI defect detection
 - [x] WebSocket Server (Node.js) - Real-time updates
+- [x] Printer IP network registry - Registration, capability discovery, heartbeats, and job dispatch
+- [x] Job orchestrator printer client - IP-based discovery and dispatch contract
 
 ### Frontend
 - [x] Next.js 14 with TypeScript
@@ -64,25 +66,16 @@
 ## 🚧 To Be Implemented (Next Steps)
 
 ### Backend Logic
-- [ ] Complete API handler implementations
-- [ ] JWT authentication logic
-- [ ] Database ORM integration (GORM for Go)
+- [ ] Authenticate printer agents with mTLS or signed device tokens before production hardware access
 - [ ] STL file parsing and model partitioning
 - [ ] Part assignment algorithm refinement
 - [ ] Payment processing integration
 - [ ] Email notifications
-
-### Frontend Features
+ - [x] Printer IP network registry - Registration, capability discovery, heartbeats, and job dispatch
+ - [x] Job orchestrator printer client - IP-based discovery and dispatch contract
 - [ ] User authentication pages (login, register)
 - [ ] Job submission form with STL upload
-- [ ] Job dashboard with real-time updates
-- [ ] Printer management interface
-- [ ] QA review panel
-- [ ] 3D model viewer (Three.js integration)
-- [ ] Real-time WebSocket integration
-- [ ] User profile and settings
-
-### AI/ML Components
+ - [ ] Authenticate printer agents with mTLS or signed device tokens before production hardware access
 - [ ] Train defect detection model
 - [ ] Collect training dataset (10,000+ labeled images)
 - [ ] Deploy AI model endpoint
