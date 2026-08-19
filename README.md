@@ -143,6 +143,18 @@ make dev
 - `POST /api/v1/printers/:id/certify` - Submit certification test
 - `GET /api/v1/printers/available` - Find available printers
 
+#### Printer IP network contract
+
+The gateway forwards printer registration and discovery to the printer network service at `PRINTER_SERVICE_URL` (Docker default: `http://printer-service:8083`). A printer agent or adapter can use:
+
+- `POST /v1/printers` with `id`, `name`, `ip`, `port`, `model`, and `materials`
+- `GET /v1/printers/:id` to inspect connection state and capabilities
+- `GET /v1/printers` to list registered printers
+- `POST /v1/printers/:id/heartbeat` with `status` and optional `current_job_id`
+- `POST /v1/printers/:id/jobs` with `job_id`, `part_id`, and `artifact_url`
+
+Dispatch returns the printer IP target and marks the printer as printing. Production deployment must add authenticated printer identities, TLS, network ACLs, signed job payloads, and an adapter for each vendor protocol; the registry does not send unauthenticated commands directly to hardware.
+
 ### QA
 - `POST /api/v1/qa/submit` - Submit QA photos/measurements
 - `POST /api/v1/qa/review/:id` - Review QA submission

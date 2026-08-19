@@ -68,12 +68,15 @@ services:
     environment:
       - DATABASE_URL=postgres://swarmforge:dev_password_change_in_prod@postgres:5432/swarmforge?sslmode=disable
       - REDIS_URL=redis:6379
+      - PRINTER_PORT=8083
       - JWT_SECRET=your-secret-key-change-in-prod
+      - PRINTER_SERVICE_URL=http://printer-service:8083
     ports:
       - "8080:8080"
     depends_on:
       - postgres
       - redis
+      - printer-service
     networks:
       - swarmforge
     volumes:
@@ -113,6 +116,8 @@ services:
       - redis
     networks:
       - swarmforge
+    ports:
+      - "8083:8083"
     volumes:
       - ./services/printer-service:/app
 

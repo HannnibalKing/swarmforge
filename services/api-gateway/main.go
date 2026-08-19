@@ -125,18 +125,6 @@ func updateJobStatus(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "Update job status endpoint"})
 }
 
-func registerPrinter(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": "Register printer endpoint"})
-}
-
-func getPrinter(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": "Get printer endpoint"})
-}
-
-func getAvailablePrinters(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": "Get available printers endpoint"})
-}
-
 func submitCertification(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "Submit certification endpoint"})
 }

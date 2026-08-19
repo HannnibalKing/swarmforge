@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"log"
+	"net/http"
+	"os"
 
 	"github.com/joho/godotenv"
 )
@@ -242,7 +244,11 @@ func main() {
 	profiles, _ := json.MarshalIndent(knownPrinters, "", "  ")
 	log.Printf("Loaded printer profiles:\n%s\n", string(profiles))
 
-	// Start API server (would integrate with actual API)
-	// For now, just keep running
-	select {}
+	port := os.Getenv("PRINTER_PORT")
+	if port == "" {
+		port = "8083"
+	}
+	registry := NewPrinterRegistry()
+	log.Printf("Printer network service listening on :%s", port)
+	log.Fatal(http.ListenAndServe(":"+port, NewPrinterNetworkHandler(registry)))
 }
