@@ -13,7 +13,7 @@
 1. **Clone repository**
 ```bash
 git clone <repository-url>
-cd Proj-Swarmforge
+cd swarmforge
 ```
 
 2. **Environment setup**

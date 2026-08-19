@@ -510,7 +510,7 @@ SwarmForge is positioned to become the de facto standard for decentralized 3D pr
 ---
 
 **For more information:**
-- GitHub: github.com/swarmforge/proj-swarmforge
+- GitHub: github.com/HannnibalKing/swarmforge
 - Documentation: docs/
 - Contact: hello@swarmforge.io
 

@@ -113,7 +113,7 @@ Payment/Reputation Update
 ```bash
 # Clone repository
 git clone <repo-url>
-cd Proj-Swarmforge
+cd swarmforge
 
 # Install dependencies
 make install
