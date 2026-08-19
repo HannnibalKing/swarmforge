@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"log"
 	"time"
 
@@ -8,9 +9,7 @@ import (
 )
 
 type Orchestrator struct {
-	// Database connection
-	// Message queue connection
-	// Redis connection
+	printerClient *PrinterClient
 }
 
 func main() {
@@ -20,7 +19,7 @@ func main() {
 
 	log.Println("Job Orchestrator starting...")
 
-	orchestrator := &Orchestrator{}
+	orchestrator := &Orchestrator{printerClient: NewPrinterClient()}
 
 	// Start job processing workers
 	go orchestrator.processNewJobs()
@@ -48,6 +47,12 @@ func (o *Orchestrator) assignParts() {
 	defer ticker.Stop()
 
 	for range ticker.C {
+		printers, err := o.printerClient.ListPrinters(context.Background())
+		if err != nil {
+			log.Printf("Printer discovery unavailable: %v", err)
+			continue
+		}
+		log.Printf("Discovered %d printers through printer network service", len(printers))
 		// TODO: Fetch unassigned parts
 		// TODO: Match with available printers using algorithm:
 		//   1. Filter by capabilities (print volume, material)

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # PostgreSQL Database
   postgres:
@@ -93,10 +91,12 @@ services:
       - DATABASE_URL=postgres://swarmforge:dev_password_change_in_prod@postgres:5432/swarmforge?sslmode=disable
       - REDIS_URL=redis:6379
       - RABBITMQ_URL=amqp://swarmforge:dev_password@rabbitmq:5672/
+      - PRINTER_SERVICE_URL=http://printer-service:8083
     depends_on:
       - postgres
       - redis
       - rabbitmq
+      - printer-service
     networks:
       - swarmforge
     volumes:
